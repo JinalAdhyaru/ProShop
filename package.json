@@ -9,13 +9,16 @@
     "start": "node backend/server.js",
     "server": "nodemon backend/server.js",
     "client": "npm start --prefix frontend",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "data:import": "node backend/seeder.js",
+    "data:destroy": "node backend/seeder.js -d"
   },
   "author": "Jinal",
   "license": "ISC",
   "dependencies": {
-    "cors": "^2.8.5",
-    "express": "^4.19.1"
+    "bcryptjs": "^2.4.3",
+    "express": "^4.19.1",
+    "mongoose": "^8.2.3"
   },
   "devDependencies": {
     "concurrently": "^8.2.2",
