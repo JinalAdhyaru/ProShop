@@ -3,7 +3,7 @@ import {Row, Col} from 'react-bootstrap';
 import Product from '../Components/Product';
 import { useGetProductsQuery } from '../slice/productsApiSlice';
 import Loader from '../Components/Loader';
-import Message from '../Components/MEssage';
+import Message from '../Components/Message';
 
 function HomeScreen() {
 

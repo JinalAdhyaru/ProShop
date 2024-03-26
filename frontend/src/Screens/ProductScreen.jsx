@@ -5,7 +5,7 @@ import { Row, Col, Image, ListGroup, Card, Button, ListGroupItem } from 'react-b
 import Ratings from '../Components/Ratings';
 import { useGetProductDetailsQuery } from '../slice/productsApiSlice';
 import Loader from '../Components/Loader';
-import Message from '../Components/MEssage';
+import Message from '../Components/Message';
 
 function ProductScreen() {
 
