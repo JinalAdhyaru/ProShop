@@ -5,10 +5,10 @@ import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { Row, Col, Image, ListGroup, Card, Button, ListGroupItem, Form } from 'react-bootstrap';
 import Ratings from '../Components/Ratings';
-import { useGetProductDetailsQuery } from '../slice/productsApiSlice';
 import Loader from '../Components/Loader';
 import Message from '../Components/Message';
-import { addToCart } from '../slice/cartSlice';
+import { useGetProductDetailsQuery } from '../slices/productsApiSlice';
+import { addToCart } from '../slices/cartSlice';
 
 function ProductScreen() {
 

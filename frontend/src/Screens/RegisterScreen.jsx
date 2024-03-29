@@ -4,8 +4,8 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Form, Button, Row, Col } from "react-bootstrap";
 import FormContainer from "../Components/FormContainer";
 import Loader from "../Components/Loader";
-import { useRegisterMutation } from "../slice/usersApiSlice";
-import { setCredentials } from "../slice/authSlice";
+import { useRegisterMutation } from "../slices/usersApiSlice";
+import { setCredentials } from "../slices/authSlice";
 import { toast } from "react-toastify";
 
 function RegisterScreen() {

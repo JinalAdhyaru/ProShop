@@ -27,9 +27,22 @@ export const usersApiSlice = apiSlice.injectEndpoints({
             query: () => ({
                 url: `${USERS_URL}/logout`,
                 method: "POST",
+                // If using cors add these 2 as well
+                // headers: { "Content-Type": "application/json" },        
+                // credentials: "include",
+            }),
+        }),
+        profile: builder.mutation({
+            query: (data) => ({
+                url: `${USERS_URL}/profile`,
+                method: "PUT",
+                body: data,
+                // If using cors add these 2 as well
+                // headers: { "Content-Type": "application/json" },        
+                // credentials: "include",
             }),
         }),
     }), 
 });
 
-export const { useLoginMutation, useRegisterMutation, useLogoutMutation } = usersApiSlice;
+export const { useLoginMutation, useRegisterMutation, useLogoutMutation, useProfileMutation } = usersApiSlice;
