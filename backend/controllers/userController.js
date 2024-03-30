@@ -161,14 +161,15 @@ const getUserByID = asyncHandler(async (req, res) => {
 const deleteUser = asyncHandler(async (req, res) => {
 
     const user = await User.findById(req.params.id);
+
     if (user) {
         if (user.isAdmin) {
             res.status(400);
-            throw new Error('Can not delete admin user');
+            throw new Error('Canot delete admin user');
         }
         
         await User.deleteOne({ _id: user._id });
-        res.status(200).json({ message: 'User removed' });
+        res.status(200).json({ message: 'User deleted successfully' });
 
     } else {
         res.status(404);
@@ -188,7 +189,11 @@ const updateUser = asyncHandler(async (req, res) => {
         
         user.name = req.body.name || user.name;
         user.email = req.body.email || user.email;
-        user.isAdmin = Boolean(req.body.isAdmin);
+
+         // check if admin is updating themselves and prevent changing admin
+        // status if that is the case
+        user.isAdmin = req.user._id.equals(req.params.id) ? user.isAdmin : Boolean(req.body.isAdmin);
+
         const updatedUser = await user.save();
         
         res.status(200).json({

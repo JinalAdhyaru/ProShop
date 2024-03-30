@@ -16,7 +16,6 @@ function ProductScreen() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const { data: product, isLoading, error } = useGetProductDetailsQuery(productId);
-
     const [qty, setQty] = useState(1);
 
     const addToCartHandler = () => {
@@ -44,7 +43,7 @@ function ProductScreen() {
                         </Col>
 
                         <Col md={4}>
-                            <ListGroup variant="flust">
+                            <ListGroup variant="flush">
                                 <ListGroupItem>
                                     <h3>{product.name}</h3>
                                 </ListGroupItem>
