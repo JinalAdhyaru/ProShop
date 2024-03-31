@@ -8,7 +8,7 @@ import orderRoutes from './routes/orderRoutes.js';
 import uploadRoutes from './routes/uploadRoutes.js';
 import { notFound, errorHandler } from './middleware/errorMiddleware.js';
 import cookieParser from 'cookie-parser';
-// import cors from "cors";
+import cors from "cors";
 
 dotenv.config();
 
@@ -17,12 +17,12 @@ connectDB();
 const app = express();
 const port = process.env.PORT || 8080;
 
-// const corsOptions = {
-//     origin: "http://localhost:3000",
-//     credentials: true, 
-// };
+const corsOptions = {
+    origin: "http://localhost:3000",
+    credentials: true, 
+};
 
-// app.use(cors(corsOptions));
+app.use(cors(corsOptions));
 
 app.get("/", (req, res) => {
     res.send("API is running");

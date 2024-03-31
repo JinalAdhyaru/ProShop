@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import Message from "../Components/Message";
 import Loader from "../Components/Loader";
-import { useProfileMutation, userProfileMutation } from "../slices/usersApiSlice";
+import { useProfileMutation } from "../slices/usersApiSlice";
 import { setCredentials } from "../slices/authSlice";
 import { useGetMyOrdersQuery } from "../slices/ordersApiSlice";
 import { FaTimes } from "react-icons/fa";

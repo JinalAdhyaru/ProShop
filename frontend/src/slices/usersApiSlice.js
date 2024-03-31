@@ -9,8 +9,8 @@ export const usersApiSlice = apiSlice.injectEndpoints({
                 method: "POST",
                 body: data,
                 // If using cors add these 2 as well
-                // headers: { "Content-Type": "application/json" },        
-                // credentials: "include",
+                headers: { "Content-Type": "application/json" },        
+                credentials: "include",
             }),
         }),
         register: builder.mutation({
@@ -19,8 +19,8 @@ export const usersApiSlice = apiSlice.injectEndpoints({
                 method: "POST",
                 body: data,
                 // If using cors add these 2 as well
-                // headers: { "Content-Type": "application/json" },        
-                // credentials: "include",
+                headers: { "Content-Type": "application/json" },        
+                credentials: "include",
             }),
         }),
         logout: builder.mutation({
@@ -28,8 +28,8 @@ export const usersApiSlice = apiSlice.injectEndpoints({
                 url: `${USERS_URL}/logout`,
                 method: "POST",
                 // If using cors add these 2 as well
-                // headers: { "Content-Type": "application/json" },        
-                // credentials: "include",
+                headers: { "Content-Type": "application/json" },        
+                credentials: "include",
             }),
         }),
         profile: builder.mutation({
@@ -38,16 +38,16 @@ export const usersApiSlice = apiSlice.injectEndpoints({
                 method: "PUT",
                 body: data,
                 // If using cors add these 2 as well
-                // headers: { "Content-Type": "application/json" },        
-                // credentials: "include",
+                headers: { "Content-Type": "application/json" },        
+                credentials: "include",
             }),
         }),
         getUsers: builder.query({
             query: () => ({
                 url: USERS_URL,
-                 // If using cors add these 2 as well
-                //  headers: { "Content-Type": "application/json" },        
-                //  credentials: "include",
+                // If using cors add these 2 as well
+                 headers: { "Content-Type": "application/json" },        
+                 credentials: "include",
             }),
             providesTags: ["Users"],
             keepUnusedDataFor: 5,
@@ -57,16 +57,16 @@ export const usersApiSlice = apiSlice.injectEndpoints({
                 url: `${USERS_URL}/${userId}`,
                 method: "DELETE",
                 // If using cors add these 2 as well
-                // headers: { "Content-Type": "application/json" },        
-                // credentials: "include",
+                headers: { "Content-Type": "application/json" },        
+                credentials: "include",
             }),
         }),
         getUserDetails: builder.query({
             query: (userId) => ({
                 url: `${USERS_URL}/${userId}`,
                 // If using cors add these 2 as well
-                // headers: { "Content-Type": "application/json" },        
-                // credentials: "include",
+                headers: { "Content-Type": "application/json" },        
+                credentials: "include",
             }),
             keepUnusedDataFor: 5,
         }),
@@ -76,8 +76,8 @@ export const usersApiSlice = apiSlice.injectEndpoints({
                 method: "PUT",
                 body: data,
                 // If using cors add these 2 as well
-                //  headers: { "Content-Type": "application/json" },        
-                //  credentials: "include",
+                 headers: { "Content-Type": "application/json" },        
+                 credentials: "include",
             }),
             invalidatesTags: ["Users"],
         }),

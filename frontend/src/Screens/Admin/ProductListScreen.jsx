@@ -1,4 +1,5 @@
 import React from "react";
+import { useParams } from "react-router-dom";
 import { Button, Table, Row, Col} from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import { useGetProductsQuery, useCreateProductMutation, useDeleteProductMutation } from "../../slices/productsApiSlice";
@@ -6,10 +7,12 @@ import Message from "../../Components/Message";
 import Loader from "../../Components/Loader";
 import { toast } from "react-toastify"; 
 import { FaEdit, FaTrash } from "react-icons/fa";
+import Paginate from "../../Components/Paginate";
 
 function ProductListScreen() {
 
-    const { data: products, isLoading, error, refetch } = useGetProductsQuery();
+    const { pageNumber } = useParams();
+    const { data, isLoading, error, refetch } = useGetProductsQuery({pageNumber, });
     const [ createProduct, { isLoading: loadingCreate }] = useCreateProductMutation();
     const [ deleteProduct, { isLoading: loadingDelete }] = useDeleteProductMutation();
 
@@ -56,7 +59,7 @@ function ProductListScreen() {
             { isLoading ? ( 
                 <Loader />
             ) : error ? (
-                <Message variant="danger">{error}</Message>
+                <Message variant="danger">{error?.data?.message || error.error}</Message>
             ) : (
                 <>
                     <Table striped hover responsive className="table-sm">
@@ -72,7 +75,7 @@ function ProductListScreen() {
                         </thead>
                         
                         <tbody>
-                            {products.map((product) => (
+                            {data.products.map((product) => (
                                 <tr key={product._id}>
                                    <td>{product._id}</td>
                                    <td>{product.name}</td>
@@ -93,10 +96,12 @@ function ProductListScreen() {
                             ))}
                         </tbody>
                     </Table>
+
+                    <Paginate pages={data.pages} page={data.page} isAdmin={true} />
                 </>
             )}
         </>
     )
 }
 
-export default ProductListScreen
+export default ProductListScreen;

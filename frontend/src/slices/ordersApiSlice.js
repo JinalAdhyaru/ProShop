@@ -9,16 +9,16 @@ export const ordersApiSlice = apiSlice.injectEndpoints({
                 method: "POST",
                 body: order,
                 // If using cors add these 2 as well
-                // headers: { "Content-Type": "application/json" },        
-                // credentials: "include",
+                headers: { "Content-Type": "application/json" },        
+                credentials: "include",
             }),
         }),
         getOrderDetails: builder.query({
             query: (orderId) => ({
                 url: `${ORDERS_URL}/${orderId}`,
                 // If using cors add these 2 as well
-                // headers: { "Content-Type": "application/json" },        
-                // credentials: "include",
+                headers: { "Content-Type": "application/json" },        
+                credentials: "include",
             }),
             keepUnusedDataFor: 5
         }),
@@ -28,16 +28,16 @@ export const ordersApiSlice = apiSlice.injectEndpoints({
                 method: "PUT",
                 body: { ...details },
                 // If using cors add these 2 as well
-                // headers: { "Content-Type": "application/json" },        
-                // credentials: "include",
+                headers: { "Content-Type": "application/json" },        
+                credentials: "include",
             }),
         }),
         getPayPalClientId: builder.query({
             query: () => ({
                 url: PAYPAL_URL,
                 // If using cors add these 2 as well
-                // headers: { "Content-Type": "application/json" },        
-                // credentials: "include",
+                headers: { "Content-Type": "application/json" },        
+                credentials: "include",
             }),
             keepUnusedDataFor: 5,
         }),
@@ -45,8 +45,8 @@ export const ordersApiSlice = apiSlice.injectEndpoints({
             query: () => ({
                 url: `${ORDERS_URL}/myOrders`,
                 // If using cors add these 2 as well
-                // headers: { "Content-Type": "application/json" },        
-                // credentials: "include",
+                headers: { "Content-Type": "application/json" },        
+                credentials: "include",
             }),
             keepUnusedDataFor: 5,
         }),
@@ -54,8 +54,8 @@ export const ordersApiSlice = apiSlice.injectEndpoints({
             query: () => ({
                 url: ORDERS_URL,
                 // If using cors add these 2 as well
-                // headers: { "Content-Type": "application/json" },        
-                // credentials: "include",
+                headers: { "Content-Type": "application/json" },        
+                credentials: "include",
             }),
             keepUnusedDataFor: 5,
         }),
@@ -64,8 +64,8 @@ export const ordersApiSlice = apiSlice.injectEndpoints({
                 url: `${ORDERS_URL}/${orderId}/deliver`,
                 method: "PUT",
                 // If using cors add these 2 as well
-                // headers: { "Content-Type": "application/json" },        
-                // credentials: "include",  
+                headers: { "Content-Type": "application/json" },        
+                credentials: "include",  
             }),
         }),
     }),
